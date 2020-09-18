@@ -1,12 +1,13 @@
 <template>
-  <div class="tree-menu">
+  <div @click.stop = 'someMethod'>
     <div>{{ text }}</div>
     <TreeNode
-        v-bind:key="index"
+        :ref="String(index)"
         v-for="(node, index) in childs"
+        v-bind:key="index"
         :childs="node.childs"
-        :label="node.text"
-    >
+        :text="node.text"
+    >`
     </TreeNode>
   </div>
 </template>
@@ -21,7 +22,18 @@ export default {
       type: Array
     }
   },
-  name: 'TreeNode'
+  name: 'TreeNode',
+  methods: {
+    someMethod(){
+      console.log(this.text)
+      let index = 0
+      if (this.childs && this.childs.length > 0) {
+        for (index; index < this.childs.length; index++) {
+          this.$refs[String(index)][0].someMethod()
+        }
+      }
+    }
+  }
 }
 </script>
 
