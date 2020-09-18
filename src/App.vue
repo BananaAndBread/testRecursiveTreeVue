@@ -34,7 +34,16 @@ export default {
           ]
         },
         {
-          text: 'item2'
+          text: 'item2',
+          childs: [
+            {
+              text: 'item2.1'
+            },
+            {
+              text: 'item2.2'
+            },
+
+          ]
         }
       ]
     }}
