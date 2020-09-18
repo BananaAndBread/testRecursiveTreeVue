@@ -1,5 +1,5 @@
 <template>
-  <div @click.stop = 'someMethod'>
+  <div class="node" @click.stop = 'someMethod'>
     <div>{{ text }}</div>
     <TreeNode
         :ref="String(index)"
@@ -38,6 +38,13 @@ export default {
 </script>
 
 <style scoped>
+  .node{
+    margin-left: 4em;
+    padding: 0.5em;
+    border: 1px black solid;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 
 
 </style>
